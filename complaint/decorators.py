@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
 from django.contrib.auth.models import User
-from .models import Profile, Complaint
+from .models import Complaint
 
 def unauthenticated_user(view_func):
     def wrapper_func(request, *args, **kwargs):

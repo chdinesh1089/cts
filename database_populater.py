@@ -2,8 +2,7 @@ import django,sys, os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "cts.settings")
 django.setup()
 from django.contrib.auth.models import User
-from complaint.models import Profile, Complaint
-from django.contrib.auth import authenticate, login,logout
+from complaint.models import Complaint
 import random
 
 def generate_database():
