@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from .models import Complaint, Remark
-from django.utils import timezone
 from django.contrib.auth import authenticate, login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
