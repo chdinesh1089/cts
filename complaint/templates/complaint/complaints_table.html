@@ -54,6 +54,14 @@
   </tr>
   {% endfor %}
 </table>
+  
+  <form method="post" action="{% url 'vote' %}"" onsubmit="return submitForm(this);">
+    {% csrf_token %}
+    <input type="hidden" value="1"   name="vote" />
+    <input type="hidden" value="1" name="id" />
+    <input type="submit" value="post request"/>
+  </form>
+
 {% if show_back_btn %}
 <form method="get" action="{{view_url}}" style="position: relative;margin-left:45%;">
 <button type="submit">back</button>
@@ -127,6 +135,19 @@ for (var i = 0; i < deleteLinks.length; i++) {
         window.location.href = this.getAttribute('href');
       }
   });
+}
+</script>
+
+<script>
+  function submitForm(oFormElement)
+  {
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function(){ alert (xhr.responseText); } // success case
+  xhr.onerror = function(){ alert (xhr.responseText); } // failure case
+  xhr.open (oFormElement.method, oFormElement.action, true);
+  console.log(oFormElement)
+  xhr.send (new FormData (oFormElement));
+  return false;
 }
 </script>
 {% endblock %}
