@@ -2,7 +2,7 @@
 
 {% block content %}
 <br><br><br>
-
+{{csrf_token}}
 {% if zero_complaints %}
   <p>Uh-oh! There are no complaints!you can register your complaint here!</p>
   <a href="{% url 'register_complaint'">Register Here</a>
